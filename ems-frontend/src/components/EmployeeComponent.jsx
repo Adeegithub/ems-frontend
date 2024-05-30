@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import { createEmployee } from '../services/EmployeeService'
+import React, { useEffect, useState } from 'react'
+import { createEmployee, updateEmployee } from '../services/EmployeeService'
 import { useNavigate, useParams } from "react-router-dom";
 
 const EmployeeComponent = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
+
+    const {id} = useParams();
 
     const [errors, setErrors] = useState({
         firstName: '',
@@ -14,8 +16,18 @@ const EmployeeComponent = () => {
     })
 
     const navigator = useNavigate();
-
-    const {id} = useParams();
+    
+    useEffect(() => {
+        if(id){
+            updateEmployee(id).then((response) => {
+                setFirstName(response.data.firstName);
+                setLastName(response.data.lastName);
+                setEmail(response.data.email);
+            }).catch(error => {
+                console.error(error);
+            })
+        }
+    }, [id])
 
     function handleFirstName(e) {
         setFirstName(e.target.value);
