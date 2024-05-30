@@ -10,14 +10,16 @@ function App() {
     <>
       <BrowserRouter>
         <HeaderComponent />
-          <Routes>
-            {/* Example -> http://localhost:3000 */}
-            <Route path='/' element = { < ListEmployeeComponent />}> </Route>
-            {/* Example -> http://localhost:3000/employees */}
-            <Route path='/employees' element = { < ListEmployeeComponent />}> </Route>
-            {/* Example -> http://localhost:3000/add-employee */}
-            <Route path='/add-employee' element = { < EmployeeComponent />}> </Route>
-          </Routes>
+        <Routes>
+          {/* Example -> http://localhost:3000 */}
+          <Route path='/' element={< ListEmployeeComponent />}> </Route>
+          {/* Example -> http://localhost:3000/employees */}
+          <Route path='/employees' element={< ListEmployeeComponent />}> </Route>
+          {/* Example -> http://localhost:3000/add-employee */}
+          <Route path='/add-employee' element={< EmployeeComponent />}> </Route>
+          {/* Example -> http://localhost:3000/update-employee/1 */}
+          <Route path='/update-employee/:id' element={< EmployeeComponent />}> </Route>
+        </Routes>
         <FooterComponent />
       </BrowserRouter>
     </>
