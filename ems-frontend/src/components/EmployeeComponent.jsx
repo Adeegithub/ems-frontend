@@ -7,7 +7,7 @@ const EmployeeComponent = () => {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [errors, setErrors] = useState({
         firstName: '',
@@ -16,9 +16,9 @@ const EmployeeComponent = () => {
     })
 
     const navigator = useNavigate();
-    
+
     useEffect(() => {
-        if(id){
+        if (id) {
             getEmployee(id).then((response) => {
                 setFirstName(response.data.firstName);
                 setLastName(response.data.lastName);
@@ -49,8 +49,8 @@ const EmployeeComponent = () => {
             const employee = { firstName, lastName, email }
             console.log(employee)
 
-            if(id){
-                updateEmployee(id,employee).then((response) => {
+            if (id) {
+                updateEmployee(id, employee).then((response) => {
                     console.log(response.data);
                     navigator('/employees')
                 }).catch(error => {
@@ -95,8 +95,8 @@ const EmployeeComponent = () => {
         return valid;
     }
 
-    function pageTitle(){
-        if(id){
+    function pageTitle() {
+        if (id) {
             return <h2 className='text-center'> Update Employee </h2>
         } else {
             return <h2 className='text-center'> Add New Employee </h2>
@@ -118,11 +118,11 @@ const EmployeeComponent = () => {
                                     placeholder='Enter Employee First Name'
                                     name='firstName'
                                     value={firstName}
-                                    className={`form-control ${errors.firstName ? 'is-invalid': ''}`}
+                                    className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
                                     onChange={handleFirstName}
                                 >
                                 </input>
-                                {errors.firstName && <div className='invalid-feedback'> {errors.firstName} </div> }
+                                {errors.firstName && <div className='invalid-feedback'> {errors.firstName} </div>}
                             </div>
 
                             <div className='form-group mb-2'>
@@ -132,11 +132,11 @@ const EmployeeComponent = () => {
                                     placeholder='Enter Employee Last Name'
                                     name='lastName'
                                     value={lastName}
-                                    className={`form-control ${errors.firstName ? 'is-invalid': ''}`}
+                                    className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
                                     onChange={handleLastName}
                                 >
                                 </input>
-                                {errors.lastName && <div className='invalid-feedback'> {errors.lastName} </div> }
+                                {errors.lastName && <div className='invalid-feedback'> {errors.lastName} </div>}
                             </div>
 
                             <div className='form-group mb-2'>
@@ -146,11 +146,11 @@ const EmployeeComponent = () => {
                                     placeholder='Enter Employee Email'
                                     name='email'
                                     value={email}
-                                    className={`form-control ${errors.firstName ? 'is-invalid': ''}`}
+                                    className={`form-control ${errors.firstName ? 'is-invalid' : ''}`}
                                     onChange={handleEmail}
                                 >
                                 </input>
-                                {errors.email && <div className='invalid-feedback'> {errors.email} </div> }
+                                {errors.email && <div className='invalid-feedback'> {errors.email} </div>}
                             </div>
                             <button className='btn btn-success' onClick={saveOrUpdateEmployee}> Submit </button>
                         </form>
