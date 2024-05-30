@@ -15,12 +15,12 @@ const ListEmployeeComponent = () => {
       });
   }, []);
 
-  function addNewEmployee(){
+  function addNewEmployee() {
     navigator('/add-employee')
   }
 
-  function updateEmployee(id){
-    navigator(`/update-employee/${id}`)
+  function editEmployee(id) {
+    navigator(`/edit-employee/${id}`)
   }
 
   return (
@@ -44,7 +44,7 @@ const ListEmployeeComponent = () => {
               <td>{employee.firstName} </td>
               <td> {employee.lastName} </td>
               <td> {employee.email} </td>
-              <td> <button className="btn btn-info" onClick={() => updateEmployee(employee.id)}> Update </button></td>
+              <td> <button className="btn btn-info" onClick={() => editEmployee(employee.id)}> Update </button></td>
             </tr>
           ))}
         </tbody>
