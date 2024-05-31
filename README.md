@@ -5,7 +5,7 @@ Given Below the Tech Stack that I used for the frontend.
 
 |     |  |
 | ------------- | ------------- |
-| Postman Client  | ReactJS (Hibernate)  |
+| Postman Client  | ReactJS |
 | Vite JS  | Bootstrap CSS  |
 | JavaScript  | NPM |
 | VS Code IDE  | Axios |
